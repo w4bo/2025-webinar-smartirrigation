@@ -1,0 +1,23 @@
+project:
+  output-dir: _site
+  preview:
+    host: 0.0.0.0
+    port: 6778
+    browser: false
+    watch-inputs: true
+
+format:
+  revealjs: 
+    theme: [white, slides.scss]
+    slide-number: true
+    default-image-extension: ""
+    # navigation-mode: vertical
+    controls-layout: bottom-right
+    controls-tutorial: true
+    preview-links: auto
+    reference-location: document
+    footnotes-hover: true
+    scrollable: true
+    width: 1100
+  pptx:
+    reference-doc: slides.pptx

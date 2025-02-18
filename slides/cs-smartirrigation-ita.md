@@ -29,24 +29,23 @@ Queste slide sono il risultato di uno sforzo condiviso:
 # Irrigazione Intelligente
 
 :::: {.columns}
-::: {.column width="62%"}
+::: {.column width="67%"}
 
-La sinergia tra Internet of Things (IoT) e agricoltura di precisione produce applicazioni di valore [@vitali2021crop]
+La sinergia tra Internet of Things (IoT) e agricoltura di precisione produce applicazioni di valore in ambito Agritech [@vitali2021crop]
 
 - **Agritech**: uso della tecnologia in agricoltura per migliorare efficienza e redditività
 
-**Obiettivo**
+**Applicazione**: irrigazione intelligente
 
 - Ottimizzare l'umidità del suolo è cruciale per le prestazioni delle colture [@turkeltaub2016real]
-- Risparmiare acqua migliorando la qualità della frutta (cioè fornire una raccomandazione sulla quantità d'acqua necessaria)
+- *Obiettivo*: indicare l'acqua necessaria per raggiungere uno stato ottimale di umidità per la produzione
 
 (Alcuni) **Problemi**:
 
 - *I suoli* hanno differenti capacità di trattenere l'acqua
 - *I sistemi di irrigazione* hanno comportamenti diversi
-    - Gocciolatori vs irrigatori
 - *Le piante* hanno diverse esigenze idriche
-    - Kiwi [@judd1986water] vs Uva
+    - Kiwi [@judd1986water] vs Vite
 
 :::
 ::: {.column width="33%"}
@@ -91,13 +90,13 @@ Il nostro approccio si compone di due fasi:
 
 ... coinvolge due attori:
 
-- *Agricoltore*: fornisce conoscenze sul campo e feedback giornalieri
+- *Agricoltore*: fornisce conoscenze e feedback sul campo
 - *Tecnico*: definisce lo stato ottimale e verifica il comportamento del sistema
 
 ... e richiede un ambiente IoT:
 
-- *Sensori* (obbligatori): forniscono conoscenze in tempo reale
-- *Pompa d'acqua azionabile*: abilita l'irrigazione intelligente
+- *Sensori* (obbligatori): forniscono conoscenza in tempo reale
+- *Irrigazione azionabile da remoto* (opzionale)
     - Senza connessione remota, forniamo all'agricoltore una raccomandazione (es. via e-mail)
 
 :::
@@ -142,7 +141,6 @@ Il nostro approccio si compone di due fasi:
 
 # Layout dei Sensori e Ipotesi di Simmetria
 
-Approcci con singolo sensore (o colonna di sensori a diverse profondità) assumono che l'umidità del suolo sia uniforme ovunque
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -157,37 +155,49 @@ Approcci con singolo sensore (o colonna di sensori a diverse profondità) assumo
 :::
 ::::
 
-- Se il volume irrigato è simmetrico lungo il filare, una griglia 2D di sensori è sufficiente per rappresentare il volume di suolo
+Approcci con singolo sensore (o colonna di sensori a diverse profondità) *assumono che l'umidità del suolo sia uniforme ovunque*
+
+- Se il volume irrigato è simmetrico lungo il filare, *una griglia 2D di sensori è sufficiente per rappresentare il volume di suolo*
 - Se le variazioni di umidità avvengono anche lungo il filare, è necessaria una griglia 3D di sensori
     - Es. gocciolatori troppo distanti tra loro
 
-# Raccolta Dati
+# Raccolta Dati in Tempo Reale
 
 :::: {.columns}
-::: {.column width="60%"}
+::: {.column width="43%"}
 
-**Setup**: installiamo una griglia 2D di sensori
+Ad oggi monitoriamo **10 campi** principalmente di kiwi
 
-- 4 colonne di sensori disposte lungo il filare (es. 0/30/60/90cm)
-    - La colonna (0, *) è sotto il gocciolatore
-- Ogni colonna ha 3 sensori a diverse profondità (es. 20/40/60cm)
+- ... ma anche di pero, noci e vite
 
-**Dataset**: In quattro anni, abbiamo raccolto 70GB di dati (al 30 agosto 2024)
+In ogni campo, una **griglia di sensori** perpendicolare alla linea degli alberi da frutto
+
+- *4 colonne* a distanza incrementale dalla pianta
+    - es. 0/30/60/90cm
+- *Ogni colonna ha 3 sensori* a diverse profondità
+    - es. 20/40/60cm
+
+L'approccio funziona anche con *6 o 9 sensori*
+
+**Dataset**: in 4 anni 70GB di dati (al 30 agosto 2024)
+
+:::
+::: {.column width="17%"}
+
+![Raccolta dati](./img/sensori-kiwi.jpg)
 
 :::
 ::: {.column width="40%"}
 
-![Raccolta dati](./img/pluto-collection.svg)
+![Raccolta dati](./img/sensori-vite.jpg)
 
 :::
 ::::
 
-# Elaborazione  
+# Elaborazione dei Dati
 
 :::: {.columns}  
 ::: {.column width="60%"}  
-
-Interpolazione dei dati del sensore in tempo reale
 
 **Tecniche statistiche (FU)**  
 
@@ -214,41 +224,16 @@ Profilazione dei dati dei sensori in tempo reale attraverso **tecniche statistic
 
 ![Profilazione senza consapevolezza](./img/pluto-bilinear.svg)  
 
-# Fase Offline: Profilazione con IA
-
-![](./img/pluto-mlproblem.svg)  
-
-Si tratta di un **problema di regressione (multi-output)**  
-
-- Il compito è *apprendere la funzione che mappa l'input con l'output continuo*  
-- Abbiamo provato diversi modelli di machine learning  
-    - SVR, Random Forest Regression, Regressione Lineare e ANN  
-
-# Reti Neurali Artificiali  
-
-*(Una semplice) ANN è il modello con le migliori prestazioni*  
+# Fase Online: IA
 
 ![](./img/pluto-nn.svg)  
 
-Gli iperparametri (struttura/tassi di apprendimento) vengono impostati tramite un processo di ottimizzazione  
+*(Una semplice) ANN è il modello con le migliori prestazioni*  
 
-- *HyperOpt* [@komer2019hyperopt]: tecnica di ottimizzazione per esplorare lo spazio di ricerca degli iperparametri  
+Gli iperparametri (struttura/tassi di apprendimento) sono impostati tramite un processo di ottimizzazione  
+
+- *HyperOpt* [@komer2019hyperopt]: tecnica di ottimizzazione per esplorare lo spazio degli iperparametri  
 - Stiamo nidificando machine learning nel machine learning!  
-
-# Confronto tra Approcci Statistici e con IA
-
-:::: {.columns}  
-::: {.column width="50%"}  
-
-![Statistico (FU)](./img/pluto-unaware.svg)  
-
-:::  
-::: {.column width="50%"}  
-
-![IA (FA)](./img/pluto-aware.svg)  
-
-:::  
-::::
 
 # Monitoraggio
 
@@ -274,18 +259,15 @@ Gli iperparametri (struttura/tassi di apprendimento) vengono impostati tramite u
 
 Il tecnico imposta un'umidità del suolo ottimale e il sistema deve raggiungerla  [@quartieri2021effect]  
 
-:::: {.columns}  
-::: {.column width="50%"}  
+:::: {.columns}
+::: {.column width="40%"}  
 
 ![](./img/pluto-optimal.svg)  
 
 :::  
-::: {.column width="50%"}  
+::: {.column width="60%"}  
 
-- **Rosso**: stato ottimale  
-- *Blu*: stato attuale  
-
-![](./img/pluto-optimal2.svg)  
+![](./img/opt-us-caption.png)  
 
 :::  
 ::::  
@@ -310,7 +292,7 @@ Agricoltore
 ::::  
 
 - *Risparmio del 40%* di acqua durante l'intera campagna (24% in luglio/agosto)
-- *Costi energetici ridotti*: meno ore di funzionamento della pompa  
-- *Qualità comparabile* del frutto rispetto alla gestione manuale  
+- *Costi energetici ridotti*: meno ore di accensione dell'irrigazione
+- *Qualità/quantità del frutto comparabile (o migliore)* rispetto alla gestione manuale  
 
 # Bibliografia

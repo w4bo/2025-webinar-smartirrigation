@@ -184,12 +184,12 @@ L'approccio funziona anche con *6 o 9 sensori*
 :::
 ::: {.column width="17%"}
 
-![Raccolta dati](./img/sensori-kiwi.jpg)
+![Kiwi](./img/sensori-kiwi.jpg)
 
 :::
 ::: {.column width="40%"}
 
-![Raccolta dati](./img/sensori-vite.jpg)
+![Vite](./img/sensori-vite.jpg)
 
 :::
 ::::

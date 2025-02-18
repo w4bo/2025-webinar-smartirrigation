@@ -188,26 +188,23 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="irrigazione-intelligente" class="title-slide slide level1 center">
 <h1>Irrigazione Intelligente</h1>
 <div class="columns">
-<div class="column" style="width:62%;">
-<p>La sinergia tra Internet of Things (IoT) e agricoltura di precisione produce applicazioni di valore <span class="citation" data-cites="vitali2021crop">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Vitali et al. 2021</a>)</span></p>
+<div class="column" style="width:67%;">
+<p>La sinergia tra Internet of Things (IoT) e agricoltura di precisione produce applicazioni di valore in ambito Agritech <span class="citation" data-cites="vitali2021crop">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Vitali et al. 2021</a>)</span></p>
 <ul>
 <li><strong>Agritech</strong>: uso della tecnologia in agricoltura per migliorare efficienza e redditività</li>
 </ul>
-<p><strong>Obiettivo</strong></p>
+<p><strong>Applicazione</strong>: irrigazione intelligente</p>
 <ul>
 <li>Ottimizzare l’umidità del suolo è cruciale per le prestazioni delle colture <span class="citation" data-cites="turkeltaub2016real">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Turkeltaub, Kurtzman, and Dahan 2016</a>)</span></li>
-<li>Risparmiare acqua migliorando la qualità della frutta (cioè fornire una raccomandazione sulla quantità d’acqua necessaria)</li>
+<li><em>Obiettivo</em>: indicare l’acqua necessaria per raggiungere uno stato ottimale di umidità per la produzione</li>
 </ul>
 <p>(Alcuni) <strong>Problemi</strong>:</p>
 <ul>
 <li><em>I suoli</em> hanno differenti capacità di trattenere l’acqua</li>
-<li><em>I sistemi di irrigazione</em> hanno comportamenti diversi
-<ul>
-<li>Gocciolatori vs irrigatori</li>
-</ul></li>
+<li><em>I sistemi di irrigazione</em> hanno comportamenti diversi</li>
 <li><em>Le piante</em> hanno diverse esigenze idriche
 <ul>
-<li>Kiwi <span class="citation" data-cites="judd1986water">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Judd, McAneney, and Trought 1986</a>)</span> vs Uva</li>
+<li>Kiwi <span class="citation" data-cites="judd1986water">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Judd, McAneney, and Trought 1986</a>)</span> vs Vite</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:33%;">
@@ -252,13 +249,13 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 <p>… coinvolge due attori:</p>
 <ul>
-<li><em>Agricoltore</em>: fornisce conoscenze sul campo e feedback giornalieri</li>
+<li><em>Agricoltore</em>: fornisce conoscenze e feedback sul campo</li>
 <li><em>Tecnico</em>: definisce lo stato ottimale e verifica il comportamento del sistema</li>
 </ul>
 <p>… e richiede un ambiente IoT:</p>
 <ul>
-<li><em>Sensori</em> (obbligatori): forniscono conoscenze in tempo reale</li>
-<li><em>Pompa d’acqua azionabile</em>: abilita l’irrigazione intelligente
+<li><em>Sensori</em> (obbligatori): forniscono conoscenza in tempo reale</li>
+<li><em>Irrigazione azionabile da remoto</em> (opzionale)
 <ul>
 <li>Senza connessione remota, forniamo all’agricoltore una raccomandazione (es. via e-mail)</li>
 </ul></li>
@@ -315,7 +312,6 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <section id="layout-dei-sensori-e-ipotesi-di-simmetria" class="title-slide slide level1 center">
 <h1>Layout dei Sensori e Ipotesi di Simmetria</h1>
-<p>Approcci con singolo sensore (o colonna di sensori a diverse profondità) assumono che l’umidità del suolo sia uniforme ovunque</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -332,8 +328,9 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </figure>
 </div>
 </div></div>
+<p>Approcci con singolo sensore (o colonna di sensori a diverse profondità) <em>assumono che l’umidità del suolo sia uniforme ovunque</em></p>
 <ul>
-<li>Se il volume irrigato è simmetrico lungo il filare, una griglia 2D di sensori è sufficiente per rappresentare il volume di suolo</li>
+<li>Se il volume irrigato è simmetrico lungo il filare, <em>una griglia 2D di sensori è sufficiente per rappresentare il volume di suolo</em></li>
 <li>Se le variazioni di umidità avvengono anche lungo il filare, è necessaria una griglia 3D di sensori
 <ul>
 <li>Es. gocciolatori troppo distanti tra loro</li>
@@ -341,34 +338,48 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 </section>
 
-<section id="raccolta-dati" class="title-slide slide level1 center">
-<h1>Raccolta Dati</h1>
+<section id="raccolta-dati-in-tempo-reale" class="title-slide slide level1 center">
+<h1>Raccolta Dati in Tempo Reale</h1>
 <div class="columns">
-<div class="column" style="width:60%;">
-<p><strong>Setup</strong>: installiamo una griglia 2D di sensori</p>
+<div class="column" style="width:43%;">
+<p>Ad oggi monitoriamo <strong>10 campi</strong> principalmente di kiwi</p>
 <ul>
-<li>4 colonne di sensori disposte lungo il filare (es. 0/30/60/90cm)
-<ul>
-<li>La colonna (0, *) è sotto il gocciolatore</li>
-</ul></li>
-<li>Ogni colonna ha 3 sensori a diverse profondità (es. 20/40/60cm)</li>
+<li>… ma anche di pero, noci e vite</li>
 </ul>
-<p><strong>Dataset</strong>: In quattro anni, abbiamo raccolto 70GB di dati (al 30 agosto 2024)</p>
+<p>In ogni campo, una <strong>griglia di sensori</strong> perpendicolare alla linea degli alberi da frutto</p>
+<ul>
+<li><em>4 colonne</em> a distanza incrementale dalla pianta
+<ul>
+<li>es. 0/30/60/90cm</li>
+</ul></li>
+<li><em>Ogni colonna ha 3 sensori</em> a diverse profondità
+<ul>
+<li>es. 20/40/60cm</li>
+</ul></li>
+</ul>
+<p>L’approccio funziona anche con <em>6 o 9 sensori</em></p>
+<p><strong>Dataset</strong>: in 4 anni 70GB di dati (al 30 agosto 2024)</p>
+</div><div class="column" style="width:17%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="./img/sensori-kiwi.jpg"></p>
+<figcaption>Raccolta dati</figcaption>
+</figure>
+</div>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="./img/pluto-collection.svg"></p>
+<p><img data-src="./img/sensori-vite.jpg"></p>
 <figcaption>Raccolta dati</figcaption>
 </figure>
 </div>
 </div></div>
 </section>
 
-<section id="elaborazione" class="title-slide slide level1 center">
-<h1>Elaborazione</h1>
+<section id="elaborazione-dei-dati" class="title-slide slide level1 center">
+<h1>Elaborazione dei Dati</h1>
 <div class="columns">
 <div class="column" style="width:60%;">
-<p>Interpolazione dei dati del sensore in tempo reale</p>
 <p><strong>Tecniche statistiche (FU)</strong></p>
 <ul>
 <li>Plug-and-play (funzionante dal primo giorno)</li>
@@ -398,50 +409,16 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 
 <img data-src="./img/pluto-bilinear.svg" class="r-stretch quarto-figure-center"><p class="caption">Profilazione senza consapevolezza</p></section>
 
-<section id="fase-offline-profilazione-con-ia" class="title-slide slide level1 center">
-<h1>Fase Offline: Profilazione con IA</h1>
+<section id="fase-online-ia" class="title-slide slide level1 center">
+<h1>Fase Online: IA</h1>
 
-<img data-src="./img/pluto-mlproblem.svg" class="r-stretch"><p>Si tratta di un <strong>problema di regressione (multi-output)</strong></p>
+<img data-src="./img/pluto-nn.svg" class="r-stretch"><p><em>(Una semplice) ANN è il modello con le migliori prestazioni</em></p>
+<p>Gli iperparametri (struttura/tassi di apprendimento) sono impostati tramite un processo di ottimizzazione</p>
 <ul>
-<li>Il compito è <em>apprendere la funzione che mappa l’input con l’output continuo</em><br>
-</li>
-<li>Abbiamo provato diversi modelli di machine learning
-<ul>
-<li>SVR, Random Forest Regression, Regressione Lineare e ANN</li>
-</ul></li>
-</ul>
-</section>
-
-<section id="reti-neurali-artificiali" class="title-slide slide level1 center">
-<h1>Reti Neurali Artificiali</h1>
-<p><em>(Una semplice) ANN è il modello con le migliori prestazioni</em></p>
-
-<img data-src="./img/pluto-nn.svg" class="r-stretch"><p>Gli iperparametri (struttura/tassi di apprendimento) vengono impostati tramite un processo di ottimizzazione</p>
-<ul>
-<li><em>HyperOpt</em> <span class="citation" data-cites="komer2019hyperopt">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Komer, Bergstra, and Eliasmith 2019</a>)</span>: tecnica di ottimizzazione per esplorare lo spazio di ricerca degli iperparametri<br>
+<li><em>HyperOpt</em> <span class="citation" data-cites="komer2019hyperopt">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Komer, Bergstra, and Eliasmith 2019</a>)</span>: tecnica di ottimizzazione per esplorare lo spazio degli iperparametri<br>
 </li>
 <li>Stiamo nidificando machine learning nel machine learning!</li>
 </ul>
-</section>
-
-<section id="confronto-tra-approcci-statistici-e-con-ia" class="title-slide slide level1 center">
-<h1>Confronto tra Approcci Statistici e con IA</h1>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./img/pluto-unaware.svg"></p>
-<figcaption>Statistico (FU)</figcaption>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="./img/pluto-aware.svg"></p>
-<figcaption>IA (FA)</figcaption>
-</figure>
-</div>
-</div></div>
 </section>
 
 <section id="monitoraggio-1" class="title-slide slide level1 center">
@@ -480,15 +457,10 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <h1>Irrigazione Intelligente</h1>
 <p>Il tecnico imposta un’umidità del suolo ottimale e il sistema deve raggiungerla <span class="citation" data-cites="quartieri2021effect">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Quartieri et al. 2021</a>)</span></p>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <p><img data-src="./img/pluto-optimal.svg"></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li><strong>Rosso</strong>: stato ottimale<br>
-</li>
-<li><em>Blu</em>: stato attuale</li>
-</ul>
-<p><img data-src="./img/pluto-optimal2.svg"></p>
+</div><div class="column" style="width:60%;">
+<p><img data-src="./img/opt-us-caption.png"></p>
 </div></div>
 </section>
 
@@ -504,9 +476,8 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </div></div>
 <ul>
 <li><em>Risparmio del 40%</em> di acqua durante l’intera campagna (24% in luglio/agosto)</li>
-<li><em>Costi energetici ridotti</em>: meno ore di funzionamento della pompa<br>
-</li>
-<li><em>Qualità comparabile</em> del frutto rispetto alla gestione manuale</li>
+<li><em>Costi energetici ridotti</em>: meno ore di accensione dell’irrigazione</li>
+<li><em>Qualità/quantità del frutto comparabile (o migliore)</em> rispetto alla gestione manuale</li>
 </ul>
 </section>
 

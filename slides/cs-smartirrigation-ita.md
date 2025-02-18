@@ -248,7 +248,7 @@ Gli iperparametri (struttura/tassi di apprendimento) sono impostati tramite un p
 # Monitoraggio
 
 <div class="center" style="width: 600px !important;">
-{{< video ./img/untitled.mp4 >}}
+![Profilo di umidità](./img/untitled.gif)
 </div>
 
 # Irrigazione Intelligente

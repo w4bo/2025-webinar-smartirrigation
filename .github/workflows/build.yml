@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
-          submodule: true
+          submodules: true
       - name: Running the notebooks (if any)
         run: |
           cd slides

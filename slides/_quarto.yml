@@ -8,7 +8,7 @@ project:
 
 format:
   revealjs: 
-    theme: [white, slides.scss]
+    theme: [white, utils/slides.scss]
     slide-number: true
     default-image-extension: ""
     # navigation-mode: vertical

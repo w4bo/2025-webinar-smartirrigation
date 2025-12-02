@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/w4bo/2025-webinar-smartirrigation/compare/1.0.0...1.0.1) (2025-12-02)
+
+### Bug Fixes
+
+* styling ([36bef7b](https://github.com/w4bo/2025-webinar-smartirrigation/commit/36bef7bd2bf97a644ac18e543785eafbbdc3933e))
+
 ## 1.0.0 (2025-12-01)
 
 ### Dependency updates

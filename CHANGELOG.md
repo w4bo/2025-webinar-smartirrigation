@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/w4bo/2025-webinar-smartirrigation/compare/1.0.1...1.0.2) (2025-12-02)
+
+### Bug Fixes
+
+* gitignore and deleted unused images ([5fc2bc7](https://github.com/w4bo/2025-webinar-smartirrigation/commit/5fc2bc76fc41e35814e11e0312b375eeb6f415b3))
+
 ## [1.0.1](https://github.com/w4bo/2025-webinar-smartirrigation/compare/1.0.0...1.0.1) (2025-12-02)
 
 ### Bug Fixes

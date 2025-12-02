@@ -237,18 +237,18 @@ Gli iperparametri (struttura/tassi di apprendimento) sono impostati tramite un p
 
 # Monitoraggio
 
-<div class="center" style="width: 800px !important;">
+<div class="center-img" style="width: 800px !important;">
 ![Sensori semplici](./img/sensors-1.png)  
 </div>
 
-<div class="center" style="width: 800px !important;">
+<div class="center-img" style="width: 800px !important;">
 ![Profilo di umidità](./img/sensors-2.png)
 </div>
 
 # Monitoraggio
 
-<div class="center" style="width: 600px !important;">
-<img src="./img/untitled.gif" class="center" />
+<div class="center-img" style="width: 600px !important;">
+<img src="./img/untitled.gif" class="center-img" />
 </div>
 
 # Irrigazione Intelligente

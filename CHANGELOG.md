@@ -1,3 +1,21 @@
+## [1.0.3](https://github.com/w4bo/2025-webinar-smartirrigation/compare/1.0.2...1.0.3) (2025-12-11)
+
+### Dependency updates
+
+* **deps:** update node.js to 24.12 ([#58](https://github.com/w4bo/2025-webinar-smartirrigation/issues/58)) ([fd32e60](https://github.com/w4bo/2025-webinar-smartirrigation/commit/fd32e6073df0f77ef2da8293fc430a29978a635f))
+* **deps:** update slides/utils digest to aba8970 ([#53](https://github.com/w4bo/2025-webinar-smartirrigation/issues/53)) ([447ab95](https://github.com/w4bo/2025-webinar-smartirrigation/commit/447ab957c41e321a7943d79832f5a14c062fe0e7))
+* **deps:** update slides/utils digest to c0b7a27 ([#56](https://github.com/w4bo/2025-webinar-smartirrigation/issues/56)) ([444fbec](https://github.com/w4bo/2025-webinar-smartirrigation/commit/444fbec7ef155357c6e41f1a50b8eafca32c720f))
+* **deps:** update w4bo/quarto-slides docker tag to v1.0.27 ([#57](https://github.com/w4bo/2025-webinar-smartirrigation/issues/57)) ([a464720](https://github.com/w4bo/2025-webinar-smartirrigation/commit/a464720f14f3d65da6b6592cc26c356de5d1bb79))
+
+### Bug Fixes
+
+* build from utils ([43f98b4](https://github.com/w4bo/2025-webinar-smartirrigation/commit/43f98b42d0472e0e259ed996dd9975c45b5cc709))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-node action to v6.1.0 ([#54](https://github.com/w4bo/2025-webinar-smartirrigation/issues/54)) ([6c31cc6](https://github.com/w4bo/2025-webinar-smartirrigation/commit/6c31cc69d7e601d6b554a79d2db597ac171e621e))
+* **deps:** update jamesives/github-pages-deploy-action action to v4.7.6 ([#55](https://github.com/w4bo/2025-webinar-smartirrigation/issues/55)) ([2bc173e](https://github.com/w4bo/2025-webinar-smartirrigation/commit/2bc173ea55304e0c27baef48c1ccf89a223cbcfc))
+
 ## [1.0.2](https://github.com/w4bo/2025-webinar-smartirrigation/compare/1.0.1...1.0.2) (2025-12-02)
 
 ### Bug Fixes

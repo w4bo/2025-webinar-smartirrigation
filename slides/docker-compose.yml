@@ -4,7 +4,7 @@ services:
     image: w4bo/python:1.0.4
     volumes:
       - ./:/data
-    command: bash -c "cd /data && ./build.sh"
+    command: bash -c "cd /data && chmod +x ./utils/build.sh && ./utils/build.sh"
 
   publish:
     init: true
@@ -15,4 +15,4 @@ services:
       - "6778:6778"
     volumes:
       - ./:/data
-    command: ["/bin/bash", "/data/publish.sh"]
+    command: bash -c "chmod +x /data/publish.sh && /data/publish.sh"

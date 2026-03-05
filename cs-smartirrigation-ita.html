@@ -6,8 +6,8 @@
 <script src="cs-smartirrigation-ita_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="cs-smartirrigation-ita_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="cs-smartirrigation-ita_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="cs-smartirrigation-ita_files/libs/quarto-html/quarto-syntax-highlighting-cdaacfc258cb6f151192107f105ac881.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.12">
+<link href="cs-smartirrigation-ita_files/libs/quarto-html/quarto-syntax-highlighting-dfa48a90d809c806c7ea2d5aecd9fc66.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.29">
 
   <meta name="author" content="Matteo Francia   DISI — University of Bologna   m.francia@unibo.it">
   <title>Irrigazione intelligente</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="cs-smartirrigation-ita_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="cs-smartirrigation-ita_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -32,7 +35,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -49,7 +51,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="cs-smartirrigation-ita_files/libs/revealjs/dist/theme/quarto-82814309d54d68b486d032c3fed43186.css">
+  <link rel="stylesheet" href="cs-smartirrigation-ita_files/libs/revealjs/dist/theme/quarto-02d81299943d435e7fc7ab0366053b33.css">
   <link href="cs-smartirrigation-ita_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="cs-smartirrigation-ita_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="cs-smartirrigation-ita_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -177,7 +179,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <p>Queste slide sono il risultato di uno sforzo condiviso:</p>
 <ul>
 <li><strong>Brevetto</strong>: “Metodo e Sistema per il Monitoraggio dell’Umidità del Suolo” registrato il 18 ottobre 2023 N. 102021000023162</li>
-<li><strong>Ricerca</strong>: “Multi-sensor profiling for precision soil-moisture monitoring” <span class="citation" data-cites="francia2022multi">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Francia, Giovanelli, and Golfarelli 2022</a>)</span></li>
+<li><strong>Ricerca</strong>: “Multi-sensor profiling for precision soil-moisture monitoring” <span class="citation" data-cites="francia2022multi">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Francia et al. 2022</a>)</span></li>
 <li>Grazie a Prof.&nbsp;Matteo Golfarelli, Dott. Manuele Pasini, Dott. Alex Baiardi</li>
 </ul>
 <p><img src="./img/unibo.svg" style="box-shadow: none !important; position: absolute !important; top: -250px !important; right: -250px !important; ; max-height: 500px !important; max-width: 500px !important"></p>
@@ -193,7 +195,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 </ul>
 <p><strong>Applicazione</strong>: irrigazione intelligente</p>
 <ul>
-<li>Ottimizzare l’umidità del suolo è cruciale per le prestazioni delle colture <span class="citation" data-cites="turkeltaub2016real">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Turkeltaub, Kurtzman, and Dahan 2016</a>)</span></li>
+<li>Ottimizzare l’umidità del suolo è cruciale per le prestazioni delle colture <span class="citation" data-cites="turkeltaub2016real">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Turkeltaub et al. 2016</a>)</span></li>
 <li><em>Obiettivo</em>: indicare l’acqua necessaria per raggiungere uno stato ottimale di umidità per la produzione</li>
 </ul>
 <p>(Alcuni) <strong>Problemi</strong>:</p>
@@ -202,7 +204,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <li><em>I sistemi di irrigazione</em> hanno comportamenti diversi</li>
 <li><em>Le piante</em> hanno diverse esigenze idriche
 <ul>
-<li>Kiwi <span class="citation" data-cites="judd1986water">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Judd, McAneney, and Trought 1986</a>)</span> vs Vite</li>
+<li>Kiwi <span class="citation" data-cites="judd1986water">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Judd et al. 1986</a>)</span> vs Vite</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:33%;">
@@ -413,7 +415,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <img data-src="./img/pluto-nn.svg" class="r-stretch"><p><em>(Una semplice) ANN è il modello con le migliori prestazioni</em></p>
 <p>Gli iperparametri (struttura/tassi di apprendimento) sono impostati tramite un processo di ottimizzazione</p>
 <ul>
-<li><em>HyperOpt</em> <span class="citation" data-cites="komer2019hyperopt">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Komer, Bergstra, and Eliasmith 2019</a>)</span>: tecnica di ottimizzazione per esplorare lo spazio degli iperparametri<br>
+<li><em>HyperOpt</em> <span class="citation" data-cites="komer2019hyperopt">(<a href="#/bibliografia" role="doc-biblioref" onclick="">Komer et al. 2019</a>)</span>: tecnica di ottimizzazione per esplorare lo spazio degli iperparametri<br>
 </li>
 <li>Stiamo nidificando machine learning nel machine learning!</li>
 </ul>
@@ -482,7 +484,7 @@ Matteo Francia <br> DISI — University of Bologna <br> m.francia@unibo.it
 <section id="bibliografia" class="title-slide slide level1 smaller scrollable">
 <h1>Bibliografia</h1>
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-francia2022multi" class="csl-entry" role="listitem">
 Francia, Matteo, Joseph Giovanelli, and Matteo Golfarelli. 2022. <span>“Multi-Sensor Profiling for Precision Soil-Moisture Monitoring.”</span> <em>Computers and Electronics in Agriculture</em> 197: 106924.
 </div>
@@ -493,10 +495,10 @@ Judd, MJ, KJ McAneney, and MCT Trought. 1986. <span>“Water Use by Sheltered Ki
 Komer, Brent, James Bergstra, and Chris Eliasmith. 2019. <span>“Hyperopt-Sklearn.”</span> <em>Automated Machine Learning: Methods, Systems, Challenges</em>, 97–111.
 </div>
 <div id="ref-quartieri2021effect" class="csl-entry" role="listitem">
-Quartieri, M, M Toselli, E Baldi, G Polidori, MA Germani, M Noferini, and E Xylogiannis. 2021. <span>“Effect of the Method and Volume of Irrigation on Yield and Fruit Quality of Yellow Fleshed Kiwifruit in Northern Italy.”</span> In <em>X International Symposium on Kiwifruit 1332</em>, 211–18.
+Quartieri, M, M Toselli, E Baldi, et al. 2021. <span>“Effect of the Method and Volume of Irrigation on Yield and Fruit Quality of Yellow Fleshed Kiwifruit in Northern Italy.”</span> <em>X International Symposium on Kiwifruit 1332</em>, 211–18.
 </div>
 <div id="ref-turkeltaub2016real" class="csl-entry" role="listitem">
-Turkeltaub, Tuvia, Daniel Kurtzman, and Ofer Dahan. 2016. <span>“Real-Time Monitoring of Nitrate Transport in the Deep Vadose Zone Under a Crop Field–Implications for Groundwater Protection.”</span> <em>Hydrology and Earth System Sciences</em> 20 (8): 3099–3108.
+Turkeltaub, Tuvia, Daniel Kurtzman, and Ofer Dahan. 2016. <span>“Real-Time Monitoring of Nitrate Transport in the Deep Vadose Zone Under a Crop Field–Implications for Groundwater Protection.”</span> <em>Hydrology and Earth System Sciences</em> 20 (8): 3099–108.
 </div>
 <div id="ref-vitali2021crop" class="csl-entry" role="listitem">
 Vitali, Giuliano, Matteo Francia, Matteo Golfarelli, and Maurizio Canavari. 2021. <span>“Crop Management with the Iot: An Interdisciplinary Survey.”</span> <em>Agronomy</em> 11 (1): 181.
